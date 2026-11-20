@@ -1,0 +1,44 @@
+{
+  "_notes": "Each entry in feeds is one store feed (or your manual sheet). Set demo to false and delete the sample feed when you go live.",
+  "demo": false,
+  "minDiscountPct": 10,
+  "maxPerStore": 60,
+  "maxTotal": 300,
+  "feeds": [
+    {
+      "name": "Manual picks (checked by hand against store pages)",
+      "source": "data/products.csv",
+      "format": "csv",
+      "storeColumn": "store",
+      "map": {
+        "id": "id",
+        "title": "title",
+        "price": "price",
+        "was": "was_price",
+        "url": "url",
+        "image": "image",
+        "category": "category",
+        "rating": "rating",
+        "ends": "ends",
+        "tags": "tags",
+        "checked": "checked"
+      }
+    },
+    {
+      "name": "Example store feed (copy this block for each store, then set enabled to true)",
+      "enabled": false,
+      "store": "Example Store",
+      "source": "${EXAMPLE_FEED_URL}",
+      "format": "csv",
+      "map": {
+        "id": "sku",
+        "title": "product_name",
+        "price": "sale_price",
+        "was": "retail_price",
+        "url": "product_url",
+        "image": "image_url",
+        "category": "category"
+      }
+    }
+  ]
+}

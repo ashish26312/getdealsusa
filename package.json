@@ -1,0 +1,11 @@
+{
+  "name": "getdealsusa",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build:deals": "node scripts/build-deals.mjs",
+    "build:seo": "node scripts/build-seo.mjs",
+    "start": "npx serve public"
+  }
+}
