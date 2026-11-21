@@ -68,6 +68,19 @@ a{color:inherit}
 
 .hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:28px;background:var(--hero-bg);color:var(--hero-ink);border-radius:24px;padding:clamp(20px,4vw,40px)}
 .hero>div{min-width:0}
+.hero{position:relative;overflow:hidden}.hero>div:not(.fest){position:relative;z-index:1}
+.hero h1 em{font-style:normal;color:var(--hero-accent)}
+.feats{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0}
+.feats li{background:var(--hero-chip);border-radius:999px;padding:7px 13px;font-size:14px;font-weight:600}.feats b{margin-right:4px;font-weight:400}
+.fest{position:absolute;inset:0;pointer-events:none;z-index:0}
+.fest i{position:absolute;top:-12%;font-style:normal;font-size:22px;opacity:.55;animation:fall 14s linear infinite}
+.fest i:nth-child(1){left:6%;animation-delay:0s}.fest i:nth-child(2){left:18%;animation-delay:-3s;font-size:18px}
+.fest i:nth-child(3){left:31%;animation-delay:-7s}.fest i:nth-child(4){left:44%;animation-delay:-11s;font-size:20px}
+.fest i:nth-child(5){left:57%;animation-delay:-5s}.fest i:nth-child(6){left:69%;animation-delay:-9s;font-size:26px}
+.fest i:nth-child(7){left:82%;animation-delay:-1s}.fest i:nth-child(8){left:93%;animation-delay:-12s;font-size:16px}
+@keyframes fall{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(130vh) rotate(260deg)}}
+@media (max-width:700px){.fest i{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.fest{display:none}}
 .eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--hero-accent)}
 .hero h1{font:700 clamp(32px,5.2vw,56px)/1 var(--f-display);letter-spacing:-.035em;margin:14px 0 12px;text-wrap:balance}
 .hero p.sub{margin:0;max-width:52ch;opacity:.88;font-size:16px}
@@ -226,10 +239,12 @@ footer p{max-width:78ch;margin:0 0 8px}
   </header>
 
   <section class="hero">
+    <div class="fest" aria-hidden="true"><i>🎁</i><i>🍂</i><i>✨</i><i>🦃</i><i>🏷️</i><i>🎁</i><i>🍁</i><i>✨</i></div>
     <div>
-      <div class="eyebrow">Thanksgiving to Cyber Monday &middot; Nov 26&ndash;30, 2026</div>
-      <h1>Every Thanksgiving deal worth your time, in one search.</h1>
-      <p class="sub">Every price is checked against the store's page, then tracked daily, so real deals stand out as the history builds. Open any deal to see more from the same category, the same store and the same price range.</p>
+      <div class="eyebrow">Nov 26&ndash;30 &middot; Black Friday week</div>
+      <h1>Black Friday deals that are <em>actually</em> deals.</h1>
+      <p class="sub">Real prices. Real drops. Know when to buy.</p>
+      <ul class="feats"><li><b>✓</b> Prices checked</li><li><b>📉</b> 30-day trends</li><li><b>👍</b> Buy or wait</li></ul>
       <div class="cd" id="cd">
         <div><b id="cdD">--</b><span>days</span></div><div><b id="cdH">--</b><span>hrs</span></div><div><b id="cdM">--</b><span>min</span></div><div><b id="cdS">--</b><span>sec</span></div>
         <span class="cdl" id="cdL"></span>
