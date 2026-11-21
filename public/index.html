@@ -210,6 +210,7 @@ footer p{max-width:78ch;margin:0 0 8px}
   .search .go span{display:none}.nav .pill .t{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+.spark .tr{margin:6px 0 0;font-size:14px}.spark .tr b{margin-right:6px}.spark .tr .down{color:var(--brand);font-weight:700}.spark .tr .up{color:var(--deal);font-weight:700}.spark .tr .flat{font-weight:700}
 </style>
 </head>
 <body>
@@ -289,7 +290,7 @@ footer p{max-width:78ch;margin:0 0 8px}
     <p id="demoFoot" hidden>Sample data: every store, price and price history shown here is a placeholder.</p>
   <!--SEO:BROWSE-->
 <style>.browse{margin:0 0 18px;line-height:1.9}.browse h2{font:700 18px var(--f-display);margin:0 0 4px}.browse a{color:var(--brand);font-weight:600}</style>
-<nav class="browse" aria-label="Browse deals"><h2>Browse deals</h2><div>By category: <a href="/deals/tech/">Tech (10)</a> &middot; <a href="/deals/kitchen/">Kitchen (10)</a> &middot; <a href="/deals/fashion/">Fashion (4)</a> &middot; <a href="/deals/beauty/">Beauty (9)</a></div><div>By store: <a href="/stores/best-buy/">Best Buy</a> &middot; <a href="/stores/home-depot/">Home Depot</a> &middot; <a href="/stores/kohls/">Kohl&#39;s</a> &middot; <a href="/stores/nordstrom-rack/">Nordstrom Rack</a> &middot; <a href="/stores/walmart/">Walmart</a></div><div><a href="/about/">About</a> &middot; <a href="/contact/">Contact</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/affiliate-disclosure/">Affiliate disclosure</a></div></nav>
+<nav class="browse" aria-label="Browse deals"><h2>Browse deals</h2><div>By category: <a href="/deals/tech/">Tech (9)</a> &middot; <a href="/deals/kitchen/">Kitchen (8)</a> &middot; <a href="/deals/beauty/">Beauty (8)</a></div><div>By store: <a href="/stores/best-buy/">Best Buy</a> &middot; <a href="/stores/home-depot/">Home Depot</a> &middot; <a href="/stores/nordstrom-rack/">Nordstrom Rack</a> &middot; <a href="/stores/walmart/">Walmart</a></div><div><a href="/about/">About</a> &middot; <a href="/contact/">Contact</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/affiliate-disclosure/">Affiliate disclosure</a></div></nav>
 <!--/SEO:BROWSE-->
   </footer>
 </div>
@@ -369,13 +370,13 @@ function sampleSeries(d){
 // Judges today's price against the item's own tracked history (the last point is today's price)
 function verdict(series,p){
   const prior=series.slice(0,-1),n=prior.length;
-  if(n<7)return {tier:'new',badge:'Price tracking started',take:'Check price',reason:n<1?`We started tracking this price today, so it's too early to say whether this is the item's best price. Check back as the days go by.`:`We have ${n} day${n===1?'':'s'} of price history for this item so far, which is too little to say whether this is its best price.`};
+  if(n<7)return {tier:'new',badge:'New deal',take:'New deal',reason:n<1?'Fresh find. Price tracking starts today.':`Tracking for ${n} day${n===1?'':'s'}. Verdict after 7.`};
   const med=median(prior),lo=Math.min(...prior),below=(med-p)/med;
-  if(p<=lo*1.03&&below>=.15)return {tier:'great',badge:'Great deal',take:'Buy',reason:`Lowest price in ${n} days and ${money(Math.round(med-p))} under its usual ${money(Math.round(med))}.`};
-  if(below>=.10)return {tier:'good',badge:'Good deal',take:'Buy',reason:`${Math.round(below*100)}% under its usual price of ${money(Math.round(med))}.`+(p>lo*1.1?` It has been as low as ${money(lo)}, so it may dip again.`:'')};
-  if(below>=-.02)return {tier:'typical',badge:'Typical price',take:'Okay',reason:`Close to its usual ${money(Math.round(med))}, so the markdown is small. Fine if you need it now.`};
-  if(lo<=p*.9)return {tier:'wait',badge:'Wait',take:'Wait',reason:`It was ${money(lo)} recently and is ${money(p)} now.`};
-  return {tier:'skip',badge:'Not a deal',take:'Skip',reason:`Priced above its usual ${money(Math.round(med))}, whatever the sticker discount says.`};
+  if(p<=lo*1.03&&below>=.15)return {tier:'great',badge:'Great deal',take:'Buy',reason:`Lowest in ${n} days. ${money(Math.round(med-p))} under usual.`};
+  if(below>=.10)return {tier:'good',badge:'Good deal',take:'Buy',reason:`${Math.round(below*100)}% below its usual ${money(Math.round(med))}.`};
+  if(below>=-.02)return {tier:'typical',badge:'Typical price',take:'Okay',reason:'Its usual price. Buy only if you need it now.'};
+  if(lo<=p*.9)return {tier:'wait',badge:'Wait',take:'Wait',reason:`Was ${money(lo)} recently. Hold off.`};
+  return {tier:'skip',badge:'Not a deal',take:'Skip',reason:'Above its usual price. Skip it.'};
 }
 function makeDeals(rows){
   return rows.map(r=>{
@@ -492,6 +493,12 @@ const mini=d=>`<button class="mini" data-act="open" data-id="${d.id}"><span clas
 const row=d=>`<div class="row"><span class="tile" ${hue(d)}>${pic(d)}${ico(d.cat)}</span><span class="info"><b>${esc(d.title)}</b>${esc(d.store)} &middot; <span style="color:var(--deal);font-family:var(--f-mono)">${money(d.price)}</span> <s>${money(d.orig)}</s></span><button class="pill sq" data-act="open" data-id="${d.id}" aria-label="View deal">${ico('arrow')}</button><button class="pill sq on" data-act="save" data-id="${d.id}" aria-pressed="true" aria-label="Remove from saved">${ico('heart')}</button></div>`;
 const rail=(t,l,x)=>l.length?`<div class="rh"><h3>${t}</h3>${x||''}</div><div class="rail">${l.map(mini).join('')}</div>`:'';
 
+function trend(pts){
+  if(pts.length<7)return `<p class="tr"><b>30-day trend</b> Day ${pts.length} of 30. Check back soon.</p>`;
+  const a=pts[0],z=pts[pts.length-1],ch=(z-a)/a,lo=Math.min(...pts),hi=Math.max(...pts);
+  const ar=ch<=-.03?['&darr;','down',`Down ${Math.round(-ch*100)}%`]:ch>=.03?['&uarr;','up',`Up ${Math.round(ch*100)}%`]:['&rarr;','flat','Steady'];
+  return `${spark(pts)}<p class="tr"><b>${Math.min(pts.length,30)}-day trend</b> <span class="${ar[1]}">${ar[0]} ${ar[2]}</span> &middot; low ${money(lo)} &middot; high ${money(hi)}</p>`;
+}
 function spark(pts){
   const W=300,H=84,p=8,lo=Math.min(...pts),hi=Math.max(...pts),sp=hi-lo||1,last=pts.length-1;
   const X=i=>(p+i*(W-2*p)/last).toFixed(1),Y=v=>(p+(hi-v)/sp*(H-2*p)).toFixed(1);
@@ -589,9 +596,9 @@ function showDeal(id){
 <div class="dmeta"><button data-act="store" data-v="${esc(d.store)}">${esc(d.store)}</button><span>in</span><button data-act="cat" data-v="${d.cat}">${CATS[d.cat].n}</button>${d.rating?`<span>&middot; &#9733; ${d.rating}</span>`:''}</div>
 <h3 class="dtitle">${esc(d.title)}</h3>
 <div class="dprice"><span class="now">${money(d.price)}</span><s>${money(d.orig)}</s><span class="sv">Save ${money(d.save)}</span></div>
-<div class="take ${d.v.tier}"><div class="tk"><span>Our take</span><b>${d.v.take}</b></div><p>${esc(d.v.reason)}</p><small>${esc(d.v.badge)} &middot; ${d.series.length>1?`${d.series.length-1} day${d.series.length===2?'':'s'} of tracked prices`:'Tracking started today'}${DEMO?' (sample data)':''}.${d.checked?' Price checked '+fmtTime(d.checked)+'.':''} Prices can change at any time. The % off compares with the store's listed regular or comparison price, which is not always what the item recently sold for.</small></div>
+<div class="take ${d.v.tier}"><div class="tk"><span>Our take</span><b>${d.v.take}</b></div><p>${esc(d.v.reason)}</p><small>${d.checked?'Checked '+fmtTime(d.checked)+' &middot; ':''}% off vs. store's list price${DEMO?' (sample data)':''}</small></div>
 <div class="chips">${d.end?`<span class="chip hot" data-end="${d.end}" data-pre="Ends in ">Ends in ${fmtLeft(d.end-Date.now())}</span>`:''}${hotBtn(d)}</div>
-<div class="spark">${spark(pts)}<p>Tracked prices, last ${pts.length} days: ${money(lo)} to ${money(hi)}</p></div>
+<div class="spark">${trend(pts)}</div>
 ${cta}
 ${rail('More in '+CATS[d.cat].n,catL,`<button class="link" data-act="cat" data-v="${d.cat}">See all</button>`)}
 ${rail('More from '+esc(d.store),storeL,`<button class="link" data-act="store" data-v="${esc(d.store)}">See all</button>`)}
