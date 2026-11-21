@@ -30,25 +30,11 @@ export const INFO_PAGES = (site) => [
     title: `Contact ${site.name}`,
     desc: `Send ${site.name} a question, a correction or a deal tip.`,
     body: `
-<p>Found a wrong price, have a deal tip, or a question about your data? Send us a message and we'll reply by email.</p>
-<form class="cf" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact/thanks/">
-<input type="hidden" name="form-name" value="contact">
-<p hidden><label>Leave this empty <input name="bot-field"></label></p>
-<label>Your name<input name="name" autocomplete="name" required></label>
-<label>Your email<input type="email" name="email" autocomplete="email" required></label>
-<label>Topic<select name="topic"><option>Wrong price or expired deal</option><option>Deal tip</option><option>Privacy or data request</option><option>Partnership</option><option>Other</option></select></label>
-<label>Message<textarea name="message" rows="6" required></textarea></label>
-<button type="submit">Send message</button>
-</form>
+<p>Found a wrong price, have a deal tip, or a question about your data? Email us and we'll reply.</p>
+<div class="em"><a href="mailto:getdealsusa.help@gmail.com?subject=GetDealsUSA%20question">getdealsusa.help@gmail.com</a>
+<button type="button" onclick="var b=this;navigator.clipboard.writeText('getdealsusa.help@gmail.com').then(function(){b.textContent='Copied'},function(){b.textContent='Select the address to copy'})">Copy</button></div>
+<p>Helpful to include: the deal link, what looks wrong, and for privacy requests, the email address you signed up with.</p>
 <p class="m">We use what you send only to reply to you. See our <a href="/privacy/">Privacy Policy</a>.</p>`,
-  },
-  {
-    p: '/contact/thanks/',
-    nav: null,
-    noindex: true,
-    title: 'Message sent',
-    desc: 'Thanks for your message.',
-    body: `<p>Thanks, your message was sent. We'll reply by email.</p><p><a href="/">Back to deals</a></p>`,
   },
   {
     p: '/privacy/',
@@ -61,7 +47,7 @@ export const INFO_PAGES = (site) => [
 <h2>What we collect</h2>
 <ul>
 <li><b>Email address</b>, if you sign up for deal alerts.</li>
-<li><b>Name, email and message</b>, if you use our contact form.</li>
+<li><b>Your email and message</b>, if you email us.</li>
 <li><b>Technical data</b> that our hosting provider records automatically when you visit, such as IP address, browser type and pages requested. It is used to run and secure the site.</li>
 <li><b>Saved deals and recently viewed items</b> are stored only in your own browser (local storage). They are not sent to us. You can clear them by clearing your browser's site data.</li>
 </ul>
@@ -73,13 +59,13 @@ export const INFO_PAGES = (site) => [
 </ul>
 <p>We do not sell your personal information, and we do not share it for cross-context behavioral advertising.</p>
 <h2>Who we share it with</h2>
-<p>Only service providers that help us run the site, under their own privacy terms: our host and form provider (Netlify) and, when we send alerts, our email provider. We may disclose information if required by law.</p>
+<p>Only service providers that help us run the site, under their own privacy terms: our host (Netlify) and, when we send alerts, our email provider. We may disclose information if required by law.</p>
 <h2>Links to stores and cookies</h2>
 <p>Deals link to store websites, which have their own privacy policies. Some links may be affiliate links; when you click one, the store or an affiliate network may set cookies to record that you came from us. We do not currently use advertising cookies or analytics; if we add them, we will update this policy first.</p>
 <h2>How long we keep it</h2>
 <p>We keep your email address until you unsubscribe or ask us to delete it, and contact messages for as long as needed to handle your request.</p>
 <h2>Your choices and rights</h2>
-<p>You can unsubscribe at any time. Depending on where you live (for example California and other US states), you may have the right to know, access, correct or delete your personal information. To make a request, use our <a href="/contact/">contact form</a> and choose "Privacy or data request". We will not treat you differently for using these rights.</p>
+<p>You can unsubscribe at any time. Depending on where you live (for example California and other US states), you may have the right to know, access, correct or delete your personal information. To make a request, email us at <a href="mailto:getdealsusa.help@gmail.com">getdealsusa.help@gmail.com</a> with the subject "Privacy request". We will not treat you differently for using these rights.</p>
 <h2>Children</h2>
 <p>This site is not directed to children under 13, and we do not knowingly collect their information.</p>
 <h2>Changes</h2>
@@ -118,7 +104,8 @@ export const INFO_PAGES = (site) => [
   },
 ];
 
-export const INFO_CSS = `.cf{display:grid;gap:12px;max-width:520px;margin:16px 0}.cf label{display:grid;gap:4px;font-weight:600}
+export const INFO_CSS = `.em{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0;font-size:20px;font-weight:700}.em a{word-break:break-all}.em button{font:inherit;font-size:14px;padding:6px 14px;border:1px solid var(--ln);border-radius:999px;background:var(--s);color:var(--ink);cursor:pointer}
+.cf{display:grid;gap:12px;max-width:520px;margin:16px 0}.cf label{display:grid;gap:4px;font-weight:600}
 .cf input,.cf select,.cf textarea{font:inherit;padding:10px 12px;border:1px solid var(--ln);border-radius:10px;background:var(--s);color:var(--ink)}
 .cf button{justify-self:start;font:inherit;font-weight:700;padding:10px 18px;border:0;border-radius:999px;background:var(--br);color:#fff;cursor:pointer}
 .w h2{font-size:19px;margin:22px 0 6px}.w ul{padding-left:20px}.w li{margin:4px 0}.ft{margin-top:28px;padding-top:14px;border-top:1px solid var(--ln);font-size:14px}.ft a{margin-right:14px}`;
