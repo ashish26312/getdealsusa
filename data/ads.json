@@ -1,0 +1,421 @@
+{
+  "_note": "Black Friday ads by store. Facts come from each store's own announcements and deal-news coverage (see sources). Highlight prices are ADVERTISED prices and are not checked on product pages like the deals in products.csv. main.start/main.end (ISO) drive the Live now / Starts / Ended badge. Edit here, then run node scripts/build-seo.mjs.",
+  "checked": "2026-11-21",
+  "stores": [
+    {
+      "store": "Walmart", "slug": "walmart",
+      "url": "https://corporate.walmart.com/news/2026/10/walmart-unwraps-three-major-holiday-shopping-events",
+      "link_label": "Walmart's event announcement",
+      "main": {"name": "Black Friday Deals", "start": "2026-11-23T00:01:00-05:00", "end": "2026-11-29T23:59:00-05:00"},
+      "thanksgiving": "Not announced", "bf_hours": "Opens 6 a.m. local on Nov 27",
+      "events": [
+        {"name": "Early Black Friday Deals", "dates": "Nov 12–15", "note": "Ended"},
+        {"name": "Black Friday Deals", "dates": "Nov 23–29", "note": "Walmart+ early access 12:01 a.m. ET Nov 23; everyone online Nov 24; in stores Nov 27 at 6 a.m."},
+        {"name": "Cyber Monday", "dates": "Nov 30–Dec 2", "note": "Online only"}
+      ],
+      "highlights": [
+        {"item": "Apple AirPods Pro 3", "price": "$199", "was": "$249"},
+        {"item": "75\" Hisense Smart Roku TV", "price": "$328", "was": "$668"},
+        {"item": "98\" TCL QLED 4K Google TV", "price": "$898", "was": "$1,500"},
+        {"item": "85\" Samsung 4K UHD Smart TV", "price": "$698", "was": "$898"},
+        {"item": "15.6\" Dell touchscreen laptop", "price": "$429", "was": "$849"},
+        {"item": "14\" Acer Chromebook (touch)", "price": "$319", "was": "$600"}
+      ],
+      "sources": [["Walmart", "https://corporate.walmart.com/news/2026/10/walmart-unwraps-three-major-holiday-shopping-events"], ["MacRumors", "https://www.macrumors.com/2026/11/12/walmart-black-friday-sale-begins/"]]
+    },
+    {
+      "store": "Target", "slug": "target",
+      "url": "https://www.target.com/blackfriday", "link_label": "Target's Black Friday page",
+      "main": {"name": "Black Friday Week", "start": "2026-11-18T00:00:00-06:00", "end": "2026-11-29T23:59:00-06:00"},
+      "thanksgiving": "Closed", "bf_hours": "Opens 6 a.m. local on Nov 27",
+      "events": [
+        {"name": "Early Black Friday (online)", "dates": "From Nov 18", "note": null},
+        {"name": "Black Friday Week", "dates": "Nov 22–29", "note": "Up to 50% off thousands of gifts; up to $100 off select Apple"},
+        {"name": "Target Circle 360 early access", "dates": "Nov 25, from 2 a.m. CT", "note": "24-hour early access to select weekend deals"},
+        {"name": "Black Friday Weekend", "dates": "Nov 26–29", "note": "Up to 50% off apparel and toys; 40% off beauty gift sets and holiday trees"},
+        {"name": "GiftCard giveaway", "dates": "Nov 27", "note": "First 100 eligible guests per store get a $25–$100 GiftCard"}
+      ],
+      "highlights": [
+        {"item": "Apple AirPods Pro 3", "price": "$179.99", "was": "$249.99"},
+        {"item": "Bose QuietComfort Headphones", "price": "$169.99", "was": "$359.99"},
+        {"item": "65\" Samsung 4K Crystal Smart TV", "price": "$299.99", "was": "$399.99"},
+        {"item": "65\" LG OLED evo AI Smart TV", "price": "$1,441.99", "was": "$2,399.99"},
+        {"item": "Apple Watch Series 12", "price": "$329.99", "was": "$399.99"},
+        {"item": "Nex Playground", "price": "$209", "was": "$299"}
+      ],
+      "sources": [["Target", "https://corporate.target.com/press/fact-sheet/2026/11/holiday-shopping-information"], ["MacRumors", "https://www.macrumors.com/2026/11/18/targets-early-black-friday/"]]
+    },
+    {
+      "store": "Best Buy", "slug": "best-buy",
+      "url": "https://www.bestbuy.com/", "link_label": "bestbuy.com",
+      "main": {"name": "Black Friday Sale", "start": "2026-11-19T00:00:00-06:00", "end": "2026-11-28T23:59:00-06:00"},
+      "thanksgiving": "Closed (online flash sale)", "bf_hours": "6 a.m.–10 p.m. on Nov 27",
+      "events": [
+        {"name": "Black Friday Sale", "dates": "Nov 19–28", "note": null},
+        {"name": "Thanksgiving Flash Sale", "dates": "Nov 26", "note": "24 hours, app and website only"},
+        {"name": "Cyber Sunday & Monday", "dates": "Nov 29–30", "note": null},
+        {"name": "Cyber Week", "dates": "Dec 1–6", "note": null}
+      ],
+      "highlights": [
+        {"item": "13\" MacBook Air (M5)", "price": "$1,049", "was": "$1,299"},
+        {"item": "65\" TCL S4 4K Fire TV", "price": "$229.99", "was": "Save $240"},
+        {"item": "Sony WH-1000XM5 headphones", "price": "$169", "was": "Save $229"},
+        {"item": "HP OmniBook 5 14\"", "price": "$449.99", "was": "Save $350"},
+        {"item": "Shark PowerDetect Speed cordless vacuum", "price": "$199.99", "was": "Save $300"},
+        {"item": "Samsung Galaxy S26 FE 128GB", "price": "$499.99", "was": "Save $200"}
+      ],
+      "sources": [["9to5Toys", "https://9to5toys.com/2026/10/27/best-buy-announces-2026-black-friday-sale/"], ["Digital Citizen", "https://www.digitalcitizen.life/best-buy-black-friday-2026-november-19-macbook-air-gift-card-store-hours/"]]
+    },
+    {
+      "store": "Amazon", "slug": "amazon",
+      "url": "https://www.amazon.com/blackfriday", "link_label": "Amazon's Black Friday page",
+      "main": {"name": "Black Friday Week & Cyber Monday", "start": "2026-11-19T00:01:00-08:00", "end": "2026-11-30T23:59:00-08:00"},
+      "thanksgiving": "Online only", "bf_hours": null,
+      "events": [
+        {"name": "Black Friday Week & Cyber Monday", "dates": "Nov 19–30", "note": "12 days of themed deal drops; double drops at midnight and 8 a.m. PT on Black Friday and Cyber Monday"},
+        {"name": "Prime Store Card offer", "dates": "Nov 22–30", "note": "$100 instant gift card"}
+      ],
+      "highlights": [
+        {"item": "Kindle Scribe Colorsoft", "price": "$479.99", "was": "$679.99"},
+        {"item": "Bose QuietComfort Headphones (2nd Gen)", "price": "$199", "was": "$359"},
+        {"item": "Beats Studio Pro", "price": "$149.95", "was": "$299.99"},
+        {"item": "KitchenAid Artisan 5-qt stand mixer", "price": "$349.95", "was": "$499.99"},
+        {"item": "Dyson V15 Detect cordless vacuum", "price": "$598.50", "was": "$849.99"},
+        {"item": "Sony WH-1000XM6", "price": "$348", "was": "$459.99"}
+      ],
+      "sources": [["Amazon", "https://www.aboutamazon.com/news/retail/when-is-amazon-black-friday-faq"], ["Popular Science", "https://www.popsci.com/gear/amazon-black-friday-deals-2026/"]]
+    },
+    {
+      "store": "Costco", "slug": "costco",
+      "url": "https://www.costco.com/black-friday.html", "link_label": "Costco's Black Friday page",
+      "main": {"name": "Holiday Savings & Black Friday", "start": "2026-11-16T00:00:00-05:00", "end": "2026-11-30T23:59:00-05:00"},
+      "thanksgiving": "Closed (online deals)", "bf_hours": "Regular hours, no early opening",
+      "events": [
+        {"name": "Holiday Savings", "dates": "Nov 16–30", "note": null},
+        {"name": "Thanksgiving online deals", "dates": "Nov 26", "note": "Online only"},
+        {"name": "Black Friday sale", "dates": "Nov 27–30", "note": null}
+      ],
+      "highlights": [
+        {"item": "Hisense 100\" QD7 TV", "price": "$999.99", "was": "$1,499.99"},
+        {"item": "TCL 65\" QM6K Pro TV", "price": "$499.99", "was": "$599.99"},
+        {"item": "Dyson Gen5detect Extra", "price": "$649.99", "was": "$889.99"},
+        {"item": "Dyson Airwrap i.d.", "price": "$499.99", "was": "$649.99"},
+        {"item": "Ninja Luxe AutoBarista Pro (online)", "price": "$659.99", "was": "$819.99"},
+        {"item": "NEX Playground + 12-mo Play Pass", "price": "$289.99", "was": "$349.99"}
+      ],
+      "sources": [["Costco Guides", "https://costcoguides.com/costco-black-friday-sale/"], ["9to5Toys", "https://9to5toys.com/?p=1238879"]]
+    },
+    {
+      "store": "Sam's Club", "slug": "sams-club",
+      "url": "https://www.samsclub.com/", "link_label": "samsclub.com",
+      "main": {"name": "Countdown & Black Friday Preview", "start": "2026-11-15T00:00:00-06:00", "end": "2026-11-29T23:59:00-06:00"},
+      "thanksgiving": "Closed", "bf_hours": null,
+      "events": [
+        {"name": "Instant Savings", "dates": "Oct 28–Nov 29", "note": "Covers most of the ad"},
+        {"name": "Countdown to Black Friday", "dates": "Nov 15–25", "note": null},
+        {"name": "Black Friday Preview", "dates": "Nov 26–29", "note": "Prices start online on Thanksgiving"}
+      ],
+      "highlights": [
+        {"item": "KitchenAid 7-qt stand mixer", "price": "$329", "was": "$429"},
+        {"item": "Samsung 55\" M70H Mini LED TV", "price": "$297.99", "was": "$347.99"},
+        {"item": "Samsung 65\" M80H Mini LED TV", "price": "$497.99", "was": null},
+        {"item": "Samsung 75\" U7900HD TV", "price": "$399", "was": null},
+        {"item": "Member's Mark Deluxe Modern Kitchen Playset", "price": "$129.98", "was": "Save $50"}
+      ],
+      "sources": [["9to5Toys", "https://9to5toys.com/2026/10/26/sams-club-november-doorbuster-ad-black-friday/"], ["Slickdeals", "https://daily.slickdeals.net/?p=227755"]]
+    },
+    {
+      "store": "BJ's Wholesale", "slug": "bjs",
+      "url": "https://www.bjs.com/deals/promo/black-friday/", "link_label": "BJ's Black Friday page",
+      "main": {"name": "Black Friday Deals", "start": "2026-10-23T00:00:00-04:00", "end": "2026-11-30T23:59:00-05:00"},
+      "thanksgiving": "Not announced", "bf_hours": null,
+      "events": [
+        {"name": "Early Black Friday", "dates": "From Oct 23", "note": "Up to 40% off TVs and electronics, up to 30% off home"},
+        {"name": "Black Friday Deals", "dates": "Through Nov 30", "note": "Up to 60% off, free shipping on select items"}
+      ],
+      "highlights": [],
+      "sources": [["DealNews", "https://www.dealnews.com/BJs-Wholesale-Club-Black-Friday-Deals-Up-to-60-off-free-shipping-on-select-items/22406646.html"]]
+    },
+    {
+      "store": "Home Depot", "slug": "home-depot",
+      "url": "https://www.homedepot.com/BlackFriday", "link_label": "Home Depot's Black Friday page",
+      "main": {"name": "Black Friday Savings Event", "start": "2026-11-05T00:00:00-05:00", "end": "2026-11-27T23:59:00-05:00"},
+      "thanksgiving": "Closed", "bf_hours": "Opens 6 a.m. on Nov 27",
+      "events": [
+        {"name": "Black Friday Savings Event", "dates": "Nov 5–25", "note": "Buy a select RYOBI, Milwaukee or DEWALT tool, get one free"},
+        {"name": "Appliance deals", "dates": "From Nov 26", "note": "Online"},
+        {"name": "Black Friday Doorbusters", "dates": "Nov 27", "note": "One day only"},
+        {"name": "Cyber Monday", "dates": "From Nov 30", "note": null}
+      ],
+      "highlights": [
+        {"item": "6.5-ft LED pre-lit artificial Christmas tree", "price": "$49.98", "was": null},
+        {"item": "Select 3.5-ft LED inflatables", "price": "$19.98", "was": null},
+        {"item": "100-count LED string lights", "price": "From $5.98", "was": null},
+        {"item": "RYOBI, Milwaukee, DEWALT tool kits", "price": "Buy one, get a tool free", "was": null},
+        {"item": "Refrigerators", "price": "Up to $500 off", "was": null},
+        {"item": "Washers and dryers", "price": "Up to $300 off", "was": null}
+      ],
+      "sources": [["Home Depot", "https://corporate.homedepot.com/node/2039"], ["9to5Toys", "https://9to5toys.com/2026/10/29/official-home-depot-2026-black-friday-ad-deals/"]]
+    },
+    {
+      "store": "Lowe's", "slug": "lowes",
+      "url": "https://www.lowes.com/l/black-friday-deals.html", "link_label": "Lowe's Black Friday page",
+      "main": {"name": "Black Friday deals", "start": "2026-10-29T00:00:00-04:00", "end": "2026-11-30T23:59:00-05:00"},
+      "thanksgiving": "Closed (online deals)", "bf_hours": "Opens 6 a.m. on Nov 27",
+      "events": [
+        {"name": "Black Friday deals", "dates": "From Oct 29", "note": "Tools, decor, appliances, outdoor power equipment"},
+        {"name": "12 Days of Deals", "dates": "From Nov 16", "note": "A new deal each day"},
+        {"name": "MyLowe's Rewards early access", "dates": "Nov 26", "note": "Doorbusters online a day early for members"},
+        {"name": "Black Friday Doorbusters", "dates": "Nov 27", "note": null}
+      ],
+      "highlights": [
+        {"item": "DEWALT 20V Max brushless oscillating multi-tool kit", "price": "$99", "was": "$199"},
+        {"item": "Werner 6-ft fiberglass ladder", "price": "$79", "was": "Save $70"},
+        {"item": "Ring Battery Doorbell 2K", "price": "$44.99", "was": null},
+        {"item": "Whirlpool 30\" gas cooktop", "price": "$629", "was": "$1,166"},
+        {"item": "LG counter-depth French door refrigerator", "price": "$1,999", "was": "Save $1,400"},
+        {"item": "Fanimation Blitz 56\" ceiling fan", "price": "$139.97", "was": "$279.98"}
+      ],
+      "sources": [["Lowe's", "https://finviz.com/news/400281/lowes-unveils-holiday-2026-lineup-with-new-gifts-and-decor-mylowes-rewards-perks-and-weeks-of-black-friday-savings"], ["Hunker", "https://www.hunker.com/2302161/lowes-early-black-friday-deals-2026/"]]
+    },
+    {
+      "store": "Kohl's", "slug": "kohls",
+      "url": "https://www.kohls.com/", "link_label": "kohls.com",
+      "main": {"name": "Black Friday Week", "start": "2026-11-22T00:00:00-06:00", "end": "2026-11-28T23:59:00-06:00"},
+      "thanksgiving": "Closed", "bf_hours": "Opens 5 a.m. local on Nov 27",
+      "events": [
+        {"name": "Black Friday Week", "dates": "Nov 22–28", "note": "Extra 20% off with coupon, plus $15 Kohl's Cash per $50"},
+        {"name": "Doorbusters", "dates": "Online from Nov 26; in stores Nov 27–28", "note": null},
+        {"name": "In-store giveaway", "dates": "Nov 27", "note": "First 200 shoppers per store get $5–$100 Kohl's Cash"},
+        {"name": "Cyber Deals", "dates": "Nov 29–30", "note": "40% off with coupon"}
+      ],
+      "highlights": [
+        {"item": "Martha Stewart 5.3-qt stand mixer", "price": "$149.99", "was": "$199.99"},
+        {"item": "Mingle & Co. 5-qt enameled cast iron Dutch oven", "price": "$69.99", "was": "$99.99"},
+        {"item": "Women's Levi's Classic Bootcut Jeans", "price": "$39.99", "was": "$64.95"},
+        {"item": "LC Lauren Conrad double-breasted coat", "price": "$39.19", "was": "$69.99"},
+        {"item": "Votive candle advent calendar", "price": "$27.99", "was": "$49.99"}
+      ],
+      "sources": [["Kohl's", "https://s204.q4cdn.com/271435555/files/doc_news/Now-Arriving-at-The-North-Kohls-November-Holiday-Savings-Events-2026.pdf"], ["Good Morning America", "https://www.goodmorningamerica.com/shop/story/kohls-black-friday-sale-2026-138088285"]]
+    },
+    {
+      "store": "Macy's", "slug": "macys",
+      "url": "https://www.macys.com/s/guides/black-friday-at-macys/", "link_label": "Macy's Black Friday guide",
+      "main": {"name": "Black Friday deals", "start": "2026-11-06T00:00:00-05:00", "end": "2026-11-28T23:59:00-05:00"},
+      "thanksgiving": "Not announced", "bf_hours": "6 a.m.–10 p.m. (varies by store)",
+      "events": [
+        {"name": "Black Friday deals", "dates": "Nov 6–28", "note": "New deals every Friday, up to 70% off select styles"},
+        {"name": "In-store tote bonus", "dates": "Nov 27–28", "note": "Free tote with a $100+ purchase"},
+        {"name": "Cyber Monday", "dates": "From Nov 29", "note": null}
+      ],
+      "highlights": [
+        {"item": "Comforter sets", "price": "From $21.99", "was": "$80–$100"},
+        {"item": "Men's suits", "price": "From $99.99", "was": "$395–$495"},
+        {"item": "2 ct. t.w. lab-grown diamond tennis bracelet", "price": "$199", "was": "$975"},
+        {"item": "Men's and women's sweaters", "price": "From $19.99", "was": "$44.50–$129"},
+        {"item": "Men's cashmere", "price": "From $69.99", "was": "$199–$300"}
+      ],
+      "sources": [["Macy's", "https://www.macys.com/s/guides/black-friday-at-macys/"], ["Pirates & Princesses", "https://piratesandprincesses.net/macys-black-friday-2026-deals-are-live-whats-on-sale-now/"]]
+    },
+    {
+      "store": "JCPenney", "slug": "jcpenney",
+      "url": "https://www.jcpenney.com/m/black-friday", "link_label": "JCPenney's Black Friday page",
+      "main": {"name": "Black Friday Deals", "start": "2026-11-20T00:00:00-06:00", "end": "2026-11-29T23:59:00-06:00"},
+      "thanksgiving": "Closed", "bf_hours": "Opens 5 a.m. local on Nov 27",
+      "events": [
+        {"name": "Black Friday Deals", "dates": "Nov 20–29", "note": "Black Friday prices for 10 days"},
+        {"name": "1000s of Deals $20 or Less", "dates": "Nov 12–Dec 25", "note": null},
+        {"name": "Black Friday giveaways", "dates": "Nov 27", "note": "In store at 5 a.m., 9 a.m., 1 p.m. and 5 p.m."}
+      ],
+      "highlights": [
+        {"item": "Citizen and Bulova watches", "price": "Under $200", "was": null},
+        {"item": "Diamond tennis bracelets", "price": "Under $100", "was": null},
+        {"item": "Women's sweaters, beauty gift sets, throws, candles", "price": "$20 or less", "was": null}
+      ],
+      "sources": [["JCPenney", "https://corporate.jcpenney.com/2026/11/02/everyone-deserves-a-better-deal-at-jcpenney-they-get-one-period/"]]
+    },
+    {
+      "store": "Dick's Sporting Goods", "slug": "dicks",
+      "url": "https://www.dickssportinggoods.com/f/black-friday-cyber-week-gifts", "link_label": "Dick's Black Friday page",
+      "main": {"name": "Black Friday deals", "start": "2026-11-22T00:00:00-05:00", "end": "2026-12-05T23:59:00-05:00"},
+      "thanksgiving": "Closed", "bf_hours": "Opens 6 a.m. local on Nov 27",
+      "events": [
+        {"name": "Black Friday deals", "dates": "Nov 22–Dec 5", "note": "While supplies last"},
+        {"name": "DICK'S Deal Days", "dates": "Dec 6–11", "note": "Online and in the app"}
+      ],
+      "highlights": [
+        {"item": "DSG Classic Fleece (men's and women's)", "price": "$29.98", "was": null},
+        {"item": "Select Callaway, TaylorMade and PING clubs", "price": "Up to $400 off", "was": null},
+        {"item": "Select Sole and BowFlex treadmills", "price": "Up to $1,600 off", "was": null},
+        {"item": "Select Nike apparel and footwear", "price": "Up to 30% off", "was": null},
+        {"item": "Select NCAA hoodies and quarter-zips", "price": "50% off", "was": null}
+      ],
+      "sources": [["Dick's Sporting Goods", "https://finviz.com/news/420170/dicks-sporting-goods-announces-2026-holiday-deals-gift-shop-and-black-friday-hours"]]
+    },
+    {
+      "store": "Academy Sports + Outdoors", "slug": "academy",
+      "url": "https://www.academy.com/c/shops/black-friday", "link_label": "Academy's Black Friday page",
+      "main": {"name": "Black Friday", "start": "2026-11-19T00:00:00-06:00", "end": "2026-11-28T23:59:00-06:00"},
+      "thanksgiving": "Closed (online deals)", "bf_hours": "5 a.m.–11 p.m. on Nov 27",
+      "events": [
+        {"name": "Black Friday Starts Now", "dates": "Nov 19–25", "note": null},
+        {"name": "Black Friday Doorbusters", "dates": "Nov 26–28", "note": "Online from Thanksgiving; in stores from 5 a.m. Black Friday"},
+        {"name": "Line-Up to Win", "dates": "Nov 27–29", "note": "First 100 in line get a $20–$500 bonus card"},
+        {"name": "Cyber Week", "dates": "Nov 29–Dec 6", "note": null}
+      ],
+      "highlights": [
+        {"item": "Pit Boss Navigator 1000 pellet grill", "price": "$499.99", "was": "$999.99"},
+        {"item": "Pit Boss 3-Series digital electric smoker", "price": "$199.99", "was": "$449.99"},
+        {"item": "Blackstone 36\" Omnivore griddle", "price": "$349.99", "was": "$499.99"},
+        {"item": "Blackstone Original 28\" XL griddle", "price": "$249.99", "was": "$329.99"},
+        {"item": "Huffy 24\" Granite 15-speed mountain bike", "price": "$99.99", "was": "$119.99"}
+      ],
+      "sources": [["Academy", "https://finviz.com/news/419064/academy-sports-outdoors-unwraps-top-holiday-gifts-great-value-and-more-ways-to-win-this-season"], ["Pirates & Princesses", "https://feed.piratesandprincesses.net/p/academy-sports-black-friday-first"]]
+    },
+    {
+      "store": "Dell", "slug": "dell",
+      "url": "https://www.dell.com/en-us/shop/black-friday-deals", "link_label": "Dell's Black Friday page",
+      "main": {"name": "Black Friday Deals", "start": "2026-11-01T00:00:00-05:00", "end": "2026-11-30T23:59:00-05:00"},
+      "thanksgiving": "Online only", "bf_hours": null,
+      "events": [
+        {"name": "Black Friday Deals", "dates": "Live now", "note": "End date not published"},
+        {"name": "Dell Rewards early access", "dates": "Through Nov 22", "note": "3X Dell Rewards"},
+        {"name": "Holiday price guarantee", "dates": "Purchases Nov 1–Dec 29", "note": "Extended returns to Jan 15, 2027"}
+      ],
+      "highlights": [
+        {"item": "Dell 14 Laptop", "price": "$549.99", "was": "$1,099.99"},
+        {"item": "Dell 16 Laptop", "price": "$649.99", "was": "$1,099.99"},
+        {"item": "XPS 14 Laptop", "price": "$1,499.99", "was": "$2,249.99"},
+        {"item": "Alienware 16 Aurora (RTX 5050)", "price": "$1,099.99", "was": "$1,999.99"},
+        {"item": "Alienware 27 QD-OLED Monitor", "price": "$279.99", "was": "$349.99"}
+      ],
+      "sources": [["Dell", "https://www.dell.com/en-us/shop/black-friday-deals"]]
+    },
+    {
+      "store": "Apple", "slug": "apple",
+      "url": "https://www.apple.com/shop/gifts/black-friday-event", "link_label": "Apple's Black Friday event",
+      "main": {"name": "Black Friday Shopping Event", "start": "2026-11-27T00:00:00-08:00", "end": "2026-11-30T23:59:00-08:00"},
+      "thanksgiving": "Not announced", "bf_hours": null,
+      "events": [
+        {"name": "Black Friday Shopping Event", "dates": "Nov 27–30", "note": "Apple Gift Card with eligible products, no price cuts. Excludes iPhone 18 Pro and Pro Max, iPhone Duo, MacBook Neo and more"}
+      ],
+      "highlights": [
+        {"item": "16-inch MacBook Pro", "price": "Up to $300 gift card", "was": null},
+        {"item": "14-inch MacBook Pro", "price": "$250 gift card", "was": null},
+        {"item": "MacBook Air (M5)", "price": "$200 gift card", "was": null},
+        {"item": "iPad Pro (M5)", "price": "$125 gift card", "was": null},
+        {"item": "iPhone Air, Mac mini, iPad Air, Apple Watch Ultra 4", "price": "$100 gift card", "was": null},
+        {"item": "iPhone 17e, Apple Watch Series 12, AirPods Pro 3", "price": "$50 gift card", "was": null}
+      ],
+      "sources": [["MacRumors", "https://macrumors.com/2026/11/19/apple-announces-2026-black-friday-event"]]
+    },
+    {
+      "store": "Nordstrom & Nordstrom Rack", "slug": "nordstrom",
+      "url": "https://www.nordstromrack.com/shop/deals/black-friday", "link_label": "Nordstrom Rack's Black Friday page",
+      "main": {"name": "Black Friday sale", "start": "2026-11-19T00:00:00-08:00", "end": "2026-12-01T23:59:00-08:00"},
+      "thanksgiving": "Closed", "bf_hours": null,
+      "events": [
+        {"name": "Nordstrom Black Friday sale", "dates": "From Nov 19", "note": "Items tagged 'Black Friday Deal'; free shipping and returns"},
+        {"name": "Nordstrom Rack Black Friday", "dates": "Live now", "note": "Up to 75% off; extra 25% off select jewelry and watches through Dec 1"}
+      ],
+      "highlights": [
+        {"item": "Nordstrom 100% cashmere crewneck sweater", "price": "$123.75", "was": "$165"},
+        {"item": "Nordstrom wool & cashmere overcoat", "price": "$399", "was": "$599"},
+        {"item": "Citizen 40mm Rolan Eco-Drive watch", "price": "$297.50", "was": "$425"},
+        {"item": "Rack: The North Face Osito fleece jacket", "price": "$46.87", "was": "57% off"},
+        {"item": "Rack: sitewide", "price": "Up to 75% off", "was": null}
+      ],
+      "sources": [["Dappered", "https://dappered.com/2026/11/nordstrom-black-friday-2026-the-best-deals-for-men/"], ["ConsumerAffairs", "https://www.consumeraffairs.com/news/black-friday-2026-mark-your-calendar-for-these-major-retailer-sales-111326.html"]]
+    },
+    {
+      "store": "Ulta Beauty", "slug": "ulta",
+      "url": "https://www.ulta.com/blackfriday", "link_label": "Ulta's Black Friday page",
+      "main": {"name": "Black Friday", "start": "2026-11-21T20:00:00-06:00", "end": "2026-11-28T23:59:00-06:00"},
+      "thanksgiving": "Closed", "bf_hours": null,
+      "events": [
+        {"name": "Black Friday", "dates": "Online Nov 21, 8 p.m. CT; in stores Nov 22; through Nov 28", "note": "Some offers for Platinum and Diamond members"},
+        {"name": "Second wave", "dates": "Nov 24", "note": "About 800 more products"},
+        {"name": "Cyber Monday (online)", "dates": "Nov 29–Dec 1", "note": null}
+      ],
+      "highlights": [
+        {"item": "Dyson Limited Edition Airwrap", "price": "$150 off", "was": null},
+        {"item": "Shark Beauty Glam and FlexStyle stylers", "price": "$100 off", "was": null},
+        {"item": "Redken, Matrix and more shampoo and conditioner", "price": "$15", "was": null},
+        {"item": "Mascara and lip, 20+ brands", "price": "Buy one, get one free", "was": null},
+        {"item": "Select Lancôme and Tarte", "price": "Up to 50% off", "was": null}
+      ],
+      "sources": [["Ulta Beauty", "https://www.ulta.com/blackfriday"], ["Good Morning America", "https://goodmorningamerica.com/shop/story/ulta-black-friday-deals-2026-137576326"]]
+    },
+    {
+      "store": "Sephora", "slug": "sephora",
+      "url": "https://www.sephora.com/beauty/black-friday", "link_label": "Sephora's Black Friday page",
+      "main": {"name": "Cyber Week", "start": "2026-11-21T00:00:00-08:00", "end": "2026-11-30T23:59:00-08:00"},
+      "thanksgiving": "Closed", "bf_hours": null,
+      "events": [
+        {"name": "App early access (Beauty Insiders)", "dates": "Nov 21–22", "note": "Daily 30%-off brands in the app"},
+        {"name": "Cyber Week", "dates": "Nov 23–30 (reported)", "note": "Daily 30%-off brand deals"}
+      ],
+      "highlights": [
+        {"item": "MAC", "price": "30% off", "was": null},
+        {"item": "Fenty Beauty, Paula's Choice, Farmacy (Black Friday)", "price": "30% off", "was": null},
+        {"item": "tarte, Drunk Elephant, Peter Thomas Roth (Nov 28)", "price": "30% off", "was": null},
+        {"item": "Dyson and Shark Beauty tools", "price": "Up to 30% off", "was": null},
+        {"item": "Sol de Janeiro", "price": "25% off select items", "was": null}
+      ],
+      "sources": [["Señora Era", "https://senoraera.com/sephora-black-friday-2026/"]]
+    },
+    {
+      "store": "REI", "slug": "rei",
+      "url": "https://www.rei.com/newsroom/article/rei-co-op-continues-to-opt-outside-on-black-friday", "link_label": "REI's announcement",
+      "main": {"name": "REI Holiday Sale", "start": "2026-11-13T00:00:00-08:00", "end": "2026-11-23T23:59:00-08:00"},
+      "thanksgiving": "Closed", "bf_hours": "Closed on Black Friday (#OptOutside)",
+      "events": [
+        {"name": "REI Holiday Sale", "dates": "Nov 13–23", "note": "Members: code HOLIDAY2026 for 20% off one full-price item"},
+        {"name": "Closed on Black Friday", "dates": "Nov 27", "note": "Online orders processed from Nov 28"}
+      ],
+      "highlights": [
+        {"item": "REI Co-op clothing and gear", "price": "25% off select", "was": null},
+        {"item": "The North Face (members)", "price": "25% off select", "was": null},
+        {"item": "Smartwool clothing and socks", "price": "25% off", "was": null},
+        {"item": "All KEEN and Oboz footwear", "price": "25% off", "was": null},
+        {"item": "Thule and Yakima racks and boxes", "price": "20% off", "was": null}
+      ],
+      "sources": [["REI", "https://www.rei.com/newsroom/article/rei-co-op-continues-to-opt-outside-on-black-friday"]]
+    },
+    {
+      "store": "Wayfair", "slug": "wayfair",
+      "url": "https://www.wayfair.com/", "link_label": "wayfair.com",
+      "main": {"name": "Black Friday Sale", "start": "2026-11-19T00:00:00-05:00", "end": "2026-11-30T23:59:00-05:00"},
+      "thanksgiving": "Online only", "bf_hours": null,
+      "events": [
+        {"name": "Black Friday Sale", "dates": "Live now", "note": "Up to 80% off; end date not published"}
+      ],
+      "highlights": [
+        {"item": "Latitude Run 38\" power recliner", "price": "$349.99", "was": "$749.99"},
+        {"item": "7.5' pre-lit flocked Christmas tree", "price": "$152.99", "was": "$370.89"},
+        {"item": "TV stand with electric fireplace", "price": "$259.99", "was": "$499.99"},
+        {"item": "6-drawer solid wood double dresser", "price": "$380", "was": "$689"},
+        {"item": "5-piece pedestal dining set", "price": "$670", "was": "$999"}
+      ],
+      "sources": [["Apartment Therapy", "https://www.apartmenttherapy.com/wayfair-black-friday-sale-2026-37701414"], ["Brad's Deals", "https://www.bradsdeals.com/deals/up-to-80-off-wayfair-black-friday-sale-2026-11-19-blt93c3e139b5a7f688"]]
+    },
+    {
+      "store": "Old Navy", "slug": "old-navy",
+      "url": "https://oldnavy.gap.com/page/black-friday-cyber-monday-deals?cid=1166554", "link_label": "Old Navy's Black Friday page",
+      "main": {"name": "Black Friday", "start": "2026-11-23T00:00:00-05:00", "end": "2026-11-30T23:59:00-05:00"},
+      "thanksgiving": "Closed", "bf_hours": null,
+      "events": [
+        {"name": "Early Black Friday", "dates": "Live now", "note": "50% off plus an extra 30% off with code EXTRA (exclusions apply)"},
+        {"name": "Black Friday", "dates": "From Nov 23", "note": null},
+        {"name": "Cyber Monday deals", "dates": "From Nov 28", "note": null}
+      ],
+      "highlights": [
+        {"item": "Sweaters and sweatshirts", "price": "50% off", "was": null},
+        {"item": "Women's jeans", "price": "From $26", "was": null},
+        {"item": "Pajamas", "price": "From $8", "was": null},
+        {"item": "Kids and baby", "price": "From $6", "was": null}
+      ],
+      "sources": [["Old Navy", "https://oldnavy.gap.com/page/black-friday-cyber-monday-deals?cid=1166554"]]
+    }
+  ]
+}

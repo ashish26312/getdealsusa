@@ -7,6 +7,7 @@ import vm from 'node:vm';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {INFO_PAGES,INFO_CSS,footerLinks} from './info-pages.mjs';
+import {buildAds} from './ads-pages.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pub=path.join(root,'public');
 const site={name:'GetDealsUSA',url:'https://getdealsusa.com',minDealsPerPage:3,...JSON.parse(await readFile(path.join(root,'data/site.json'),'utf8'))};
@@ -68,7 +69,7 @@ const catKeys=Object.keys(CATS).filter(k=>deals.filter(d=>d.cat===k).length>=sit
 const storeKeys=stores.filter(s=>deals.filter(d=>d.store===s).length>=site.minDealsPerPage);
 const catLinks=catKeys.map(k=>`<a href="/deals/${k}/">${esc(CATS[k].n)}</a>`).join(' &middot; ');
 const storeLinks=storeKeys.map(s=>`<a href="/stores/${slug(s)}/">${esc(s)}</a>`).join(' &middot; ');
-const more=`<strong>More deals:</strong> ${catLinks}${storeKeys.length?'<br><strong>By store:</strong> '+storeLinks:''}<br><a href="/">All Thanksgiving deals</a>`;
+const more=`<strong>More deals:</strong> ${catLinks}${storeKeys.length?'<br><strong>By store:</strong> '+storeLinks:''}<br><a href="/">All Thanksgiving deals</a> &middot; <a href="/black-friday-ads/">Black Friday ads by store</a>`;
 
 await rm(path.join(pub,'deals'),{recursive:true,force:true});
 await rm(path.join(pub,'stores'),{recursive:true,force:true});
@@ -97,7 +98,8 @@ const head=`<title>${esc(hTitle)}</title><meta name="description" content="${esc
 const browse=`<style>.browse{margin:0 0 18px;line-height:1.9}.browse h2{font:700 18px var(--f-display);margin:0 0 4px}.browse a{color:var(--brand);font-weight:600}</style>
 <nav class="browse" aria-label="Browse deals"><h2>Browse deals</h2>${catKeys.length?`<div>By category: ${catKeys.map(k=>`<a href="/deals/${k}/">${esc(CATS[k].n)} (${deals.filter(d=>d.cat===k).length})</a>`).join(' &middot; ')}</div>`:''}${storeKeys.length?`<div>By store: ${storeKeys.map(s=>`<a href="/stores/${slug(s)}/">${esc(s)}</a>`).join(' &middot; ')}</div>`:''}<div>${footerLinks(site).replace(/<\/a> <a/g,'</a> &middot; <a')}</div></nav>`;
 const swap=(h,tag,body)=>{const re=new RegExp(`<!--SEO:${tag}-->[\\s\\S]*?<!--/SEO:${tag}-->`);if(!re.test(h)){console.warn(`Marker SEO:${tag} not found in public/index.html`);return h}return h.replace(re,()=>`<!--SEO:${tag}-->\n${body}\n<!--/SEO:${tag}-->`)};
-await writeFile(homePath,swap(swap(home,'HEAD',head),'BROWSE',browse));
+const ads=await buildAds({root,pub,site,esc,css,icon,footerLinks,robots,year});
+await writeFile(homePath,swap(swap(swap(home,'HEAD',head),'BROWSE',browse.replace('<div>By store:','<div><a href="/black-friday-ads/">Black Friday ads by store</a></div><div>By store:')),'ADS',ads.strip));
 
 // About, Contact, Privacy, Terms, Affiliate disclosure
 const infoUrls=[];
@@ -122,8 +124,9 @@ if(demo){
   await rm(path.join(pub,'sitemap.xml'),{force:true});
   await writeFile(path.join(pub,'robots.txt'),'User-agent: *\nDisallow: /\n');
 }else{
-  const day=updated.toISOString().slice(0,10),urls=['/',...pages,...infoUrls];
+  const day=updated.toISOString().slice(0,10),urls=['/',...ads.pages,...pages,...infoUrls];
   await writeFile(path.join(pub,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u=>`<url><loc>${site.url}${u}</loc><lastmod>${day}</lastmod></url>`).join('\n')}\n</urlset>\n`);
   await writeFile(path.join(pub,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
 }
+console.log(`Black Friday ads: ${ads.pages.length} pages.`);
 console.log(`${demo?'DEMO DATA (noindex, robots blocks crawling): ':''}wrote ${pages.length} pages (${catKeys.length} categories, ${storeKeys.length} stores)${demo?'':' + sitemap.xml'}.`);
