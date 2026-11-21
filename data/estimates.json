@@ -1,0 +1,13 @@
+{
+  "_about": "Estimated 30-day price trends, built from dated public price reports (store pages, Slickdeals posts). Shown on the site with an asterisk as an estimate until our own tracking has 7+ days. Each point is [date, price]; the price holds until the next point. The deal's current price is always the last point.",
+  "items": [
+    {"match": "walmart.com/ip/11526364074", "points": [["2026-10-22", 129.99], ["2026-11-13", 89.99]],
+     "sources": ["frontdeskreview.com/product/air-fryers/ninja-air-fryer-pro-af141 ($129.99 on record Oct 20, 2026; $89.99 Nov 20, 2026)"]},
+    {"match": "walmart.com/ip/585029646", "points": [["2026-10-22", 109]],
+     "sources": ["Slickdeals posts at Walmart: $109 on 10/09/26, 10/18/26, 10/27/26"]},
+    {"match": "walmart.com/ip/7771502259", "points": [["2026-10-22", 358]],
+     "sources": ["Slickdeals posts at Walmart: $358 on 09/19/26 and 10/27/26"]},
+    {"match": "J3Z9Z42FSR", "points": [["2026-10-22", 279.99], ["2026-11-07", 249.99]],
+     "sources": ["Slickdeals price history at Best Buy: $280 on 11/05/26, $250 on 11/07/26 and 11/13/26"]}
+  ]
+}

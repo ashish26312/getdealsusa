@@ -123,6 +123,17 @@ const list=Object.values(perStore).flatMap(a=>a.slice(0,cfg.maxPerStore)).sort(b
 
 const deals=list.map(p=>({id:p.id,title:p.title,cat:p.cat,store:p.store,price:p.price,was:p.was,image:p.image,url:p.url,
   ends:p.ends,rating:p.rating,tags:p.tags,checked:p.checked||iso,history:series(hist[p.id])}));
+// Estimated 30-day trends from dated public price reports (data/estimates.json), shown with an asterisk.
+try{
+  const est=JSON.parse(await readFile(new URL('../data/estimates.json',import.meta.url),'utf8')).items||[];
+  const day=86400000,end=Date.parse(iso.slice(0,10));
+  for(const d of deals){
+    const e=est.find(x=>d.url&&d.url.includes(x.match));if(!e)continue;
+    const pts=e.points.map(([dt,pr])=>[Date.parse(dt),+pr]).sort((a,b)=>a[0]-b[0]),out=[];
+    for(let t=end-29*day;t<=end;t+=day){let v=pts[0][1];for(const [dt,pr] of pts)if(dt<=t)v=pr;out.push(v)}
+    out[out.length-1]=d.price;d.est=out;
+  }
+}catch(e){if(e.code!=='ENOENT')console.warn('estimates.json skipped:',e.message)}
 const staleChecks=deals.filter(d=>now-Date.parse(d.checked)>864e5).length;
 if(staleChecks)console.warn(`Warning: ${staleChecks} deal(s) have a "checked" time older than 24 hours. Re-check those prices.`);
 const latest=deals.map(d=>d.checked).sort().pop()||iso;

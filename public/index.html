@@ -210,7 +210,7 @@ footer p{max-width:78ch;margin:0 0 8px}
   .search .go span{display:none}.nav .pill .t{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
-.spark .tr{margin:6px 0 0;font-size:14px}.spark .tr b{margin-right:6px}.spark .tr .down{color:var(--brand);font-weight:700}.spark .tr .up{color:var(--deal);font-weight:700}.spark .tr .flat{font-weight:700}
+.spark .tr{margin:6px 0 0;font-size:14px}.spark .tr b{margin-right:6px}.spark .tr .down{color:var(--brand);font-weight:700}.spark .tr .up{color:var(--deal);font-weight:700}.spark .tr .flat{font-weight:700}.spark .est{margin:2px 0 0;font-size:11px;color:var(--muted,#667)}
 </style>
 </head>
 <body>
@@ -396,7 +396,7 @@ function fromFeed(j){
     id:String(x.id).replace(/[^A-Za-z0-9-]/g,'-'),title:String(x.title),cat:x.cat,store:String(x.store||'Store'),price:+x.price,orig:+x.was,
     end:x.ends?Date.parse(x.ends)+shift:null,votes:+x.votes||0,rating:+x.rating||0,tags:x.tags||'',image:https(x.image),url:https(x.url),
     checked:x.checked?Date.parse(x.checked)+shift:null,
-    series:(x.history||[]).map(h=>+(Array.isArray(h)?h[1]:h)).filter(n=>n>0)}));
+    series:(x.history||[]).map(h=>+(Array.isArray(h)?h[1]:h)).filter(n=>n>0),est:(x.est||[]).map(Number).filter(n=>n>0)}));
 }
 function setDeals(rows){DEALS=makeDeals(rows);STORES=[...new Set(DEALS.map(d=>d.store))].sort()}
 const SYN={tv:'television',gifts:'gift',kids:'toys',thanksgiving:'hosting',phone:'tablet',cheap:'gift'};
@@ -493,7 +493,8 @@ const mini=d=>`<button class="mini" data-act="open" data-id="${d.id}"><span clas
 const row=d=>`<div class="row"><span class="tile" ${hue(d)}>${pic(d)}${ico(d.cat)}</span><span class="info"><b>${esc(d.title)}</b>${esc(d.store)} &middot; <span style="color:var(--deal);font-family:var(--f-mono)">${money(d.price)}</span> <s>${money(d.orig)}</s></span><button class="pill sq" data-act="open" data-id="${d.id}" aria-label="View deal">${ico('arrow')}</button><button class="pill sq on" data-act="save" data-id="${d.id}" aria-pressed="true" aria-label="Remove from saved">${ico('heart')}</button></div>`;
 const rail=(t,l,x)=>l.length?`<div class="rh"><h3>${t}</h3>${x||''}</div><div class="rail">${l.map(mini).join('')}</div>`:'';
 
-function trend(pts){
+function trend(pts,est){
+  if(pts.length<7&&est&&est.length>=7){const s=trend(est);return s.replace('-day trend</b>','-day trend*</b>')+'<p class="est">*Estimated from public price reports</p>'}
   if(pts.length<7)return `<p class="tr"><b>30-day trend</b> Day ${pts.length} of 30. Check back soon.</p>`;
   const a=pts[0],z=pts[pts.length-1],ch=(z-a)/a,lo=Math.min(...pts),hi=Math.max(...pts);
   const ar=ch<=-.03?['&darr;','down',`Down ${Math.round(-ch*100)}%`]:ch>=.03?['&uarr;','up',`Up ${Math.round(ch*100)}%`]:['&rarr;','flat','Steady'];
@@ -598,7 +599,7 @@ function showDeal(id){
 <div class="dprice"><span class="now">${money(d.price)}</span><s>${money(d.orig)}</s><span class="sv">Save ${money(d.save)}</span></div>
 <div class="take ${d.v.tier}"><div class="tk"><span>Our take</span><b>${d.v.take}</b></div><p>${esc(d.v.reason)}</p><small>${d.checked?'Checked '+fmtTime(d.checked)+' &middot; ':''}% off vs. store's list price${DEMO?' (sample data)':''}</small></div>
 <div class="chips">${d.end?`<span class="chip hot" data-end="${d.end}" data-pre="Ends in ">Ends in ${fmtLeft(d.end-Date.now())}</span>`:''}${hotBtn(d)}</div>
-<div class="spark">${trend(pts)}</div>
+<div class="spark">${trend(pts,d.est)}</div>
 ${cta}
 ${rail('More in '+CATS[d.cat].n,catL,`<button class="link" data-act="cat" data-v="${d.cat}">See all</button>`)}
 ${rail('More from '+esc(d.store),storeL,`<button class="link" data-act="store" data-v="${esc(d.store)}">See all</button>`)}
