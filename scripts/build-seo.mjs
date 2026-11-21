@@ -6,6 +6,7 @@ import {readFile,writeFile,mkdir,rm} from 'node:fs/promises';
 import vm from 'node:vm';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {INFO_PAGES,INFO_CSS,footerLinks} from './info-pages.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pub=path.join(root,'public');
 const site={name:'GetDealsUSA',url:'https://getdealsusa.com',minDealsPerPage:3,...JSON.parse(await readFile(path.join(root,'data/site.json'),'utf8'))};
@@ -53,7 +54,8 @@ function shell({p,title,desc,h1,intro,list,crumbs,more}){
 <h1>${esc(h1)}</h1><p>${esc(intro)}</p><p class="m">Prices checked ${esc(fmtTime(updated.getTime()))} on ${esc(dateStr)}. Prices and availability change quickly, so confirm at the store. The % off compares with each store's listed regular or comparison price, which is not always what the item recently sold for.</p>
 <ul class="l">${list.map(li).join('\n')}</ul>
 <p>${more}</p>
-<p class="m">${esc(site.name)} may earn a commission when you buy through links on this page, at no extra cost to you.</p></div></body></html>
+<p class="m">${esc(site.name)} may earn a commission when you buy through links on this page, at no extra cost to you.</p>
+<nav class="ft" aria-label="Site"><a href="/">All deals</a> ${footerLinks(site)}</nav></div></body></html>
 `;
 }
 
@@ -93,16 +95,34 @@ const head=`<title>${esc(hTitle)}</title><meta name="description" content="${esc
 <meta property="og:type" content="website"><meta property="og:site_name" content="${esc(site.name)}"><meta property="og:title" content="${esc(hTitle)}"><meta property="og:description" content="${esc(hDesc)}"><meta property="og:url" content="${homeUrl}"><meta name="twitter:card" content="summary">
 <link rel="icon" href="${icon}"><script type="application/ld+json">${json({'@context':'https://schema.org','@type':'WebSite',name:site.name,url:homeUrl})}</script>`;
 const browse=`<style>.browse{margin:0 0 18px;line-height:1.9}.browse h2{font:700 18px var(--f-display);margin:0 0 4px}.browse a{color:var(--brand);font-weight:600}</style>
-<nav class="browse" aria-label="Browse deals"><h2>Browse deals</h2>${catKeys.length?`<div>By category: ${catKeys.map(k=>`<a href="/deals/${k}/">${esc(CATS[k].n)} (${deals.filter(d=>d.cat===k).length})</a>`).join(' &middot; ')}</div>`:''}${storeKeys.length?`<div>By store: ${storeKeys.map(s=>`<a href="/stores/${slug(s)}/">${esc(s)}</a>`).join(' &middot; ')}</div>`:''}</nav>`;
+<nav class="browse" aria-label="Browse deals"><h2>Browse deals</h2>${catKeys.length?`<div>By category: ${catKeys.map(k=>`<a href="/deals/${k}/">${esc(CATS[k].n)} (${deals.filter(d=>d.cat===k).length})</a>`).join(' &middot; ')}</div>`:''}${storeKeys.length?`<div>By store: ${storeKeys.map(s=>`<a href="/stores/${slug(s)}/">${esc(s)}</a>`).join(' &middot; ')}</div>`:''}<div>${footerLinks(site).replace(/<\/a> <a/g,'</a> &middot; <a')}</div></nav>`;
 const swap=(h,tag,body)=>{const re=new RegExp(`<!--SEO:${tag}-->[\\s\\S]*?<!--/SEO:${tag}-->`);if(!re.test(h)){console.warn(`Marker SEO:${tag} not found in public/index.html`);return h}return h.replace(re,()=>`<!--SEO:${tag}-->\n${body}\n<!--/SEO:${tag}-->`)};
 await writeFile(homePath,swap(swap(home,'HEAD',head),'BROWSE',browse));
+
+// About, Contact, Privacy, Terms, Affiliate disclosure
+const infoUrls=[];
+for(const ip of INFO_PAGES(site)){
+  const url=site.url+ip.p,rb=ip.noindex||demo?'noindex,nofollow':'index,follow';
+  const crumbs=[['Home','/'],[ip.nav||ip.title,ip.p]];
+  const html=`<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(ip.title)}</title><meta name="description" content="${esc(ip.desc)}"><link rel="canonical" href="${esc(url)}"><meta name="robots" content="${rb}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="${esc(site.name)}"><meta property="og:title" content="${esc(ip.title)}"><meta property="og:url" content="${esc(url)}">
+<link rel="icon" href="${icon}"><style>${css}${INFO_CSS}</style></head>
+<body><div class="w"><nav class="c" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; ${esc(ip.nav||ip.title)}</nav>
+<h1>${esc(ip.title)}</h1>${ip.body}
+<nav class="ft" aria-label="Site"><a href="/">All deals</a> ${footerLinks(site)}</nav></div></body></html>
+`;
+  await mkdir(path.join(pub,ip.p),{recursive:true});await writeFile(path.join(pub,ip.p,'index.html'),html);
+  if(!ip.noindex)infoUrls.push(ip.p);
+}
 
 // sitemap and robots (sample data is never submitted)
 if(demo){
   await rm(path.join(pub,'sitemap.xml'),{force:true});
   await writeFile(path.join(pub,'robots.txt'),'User-agent: *\nDisallow: /\n');
 }else{
-  const day=updated.toISOString().slice(0,10),urls=['/',...pages];
+  const day=updated.toISOString().slice(0,10),urls=['/',...pages,...infoUrls];
   await writeFile(path.join(pub,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u=>`<url><loc>${site.url}${u}</loc><lastmod>${day}</lastmod></url>`).join('\n')}\n</urlset>\n`);
   await writeFile(path.join(pub,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
 }
