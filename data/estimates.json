@@ -8,6 +8,18 @@
     {"match": "walmart.com/ip/7771502259", "points": [["2026-10-22", 358]],
      "sources": ["Slickdeals posts at Walmart: $358 on 09/19/26 and 10/27/26"]},
     {"match": "J3Z9Z42FSR", "points": [["2026-10-22", 279.99], ["2026-11-07", 249.99]],
-     "sources": ["Slickdeals price history at Best Buy: $280 on 11/05/26, $250 on 11/07/26 and 11/13/26"]}
+     "sources": ["Slickdeals price history at Best Buy: $280 on 11/05/26, $250 on 11/07/26 and 11/13/26"]},
+    {"match": "/20186522193", "points": [["2026-10-09", 79]],
+     "sources": ["slickdeals.net/f/20133525 LG UltraGear 25G523B at Walmart ($79 on record Oct 9, 2026; also $79 on 10/16/26 and 10/24/26; list $149)"]},
+    {"match": "/5152138331", "points": [["2026-10-22", 299.99]],
+     "sources": ["slickdeals.net/f/20194074 KitchenAid KSM97CU Contour Silver at Walmart ($299.99 on record Oct 22, 2026; list $449.99)"]},
+    {"match": "s2725dsm", "points": [["2026-09-22", 219.99]],
+     "sources": ["digitalcitizen.life/dell-27-plus-qhd-s2725dsm-drops-to-189-99-amazon-deal (Dell's own price $219.99, no markdown, on record Sep 22, 2026)"]},
+    {"match": "/55260503", "points": [["2026-10-12", 146], ["2026-10-26", 146], ["2026-11-04", 146], ["2026-11-19", 146]],
+     "sources": ["slickdeals.net/f/20149365 ($146 at Walmart on record 2026-10-12, list $209; Slickdeals price history: Walmart $146 on 2026-10-26, 2026-11-04, 2026-11-19)"]},
+    {"match": "/5321127922", "points": [["2026-10-12", 199], ["2026-11-17", 199]],
+     "sources": ["slickdeals.net/f/19676160 price history (Walmart $199 on record 2026-10-12; Walmart $199 on 2026-11-17)"]},
+    {"match": "/317987591", "points": [["2026-10-26", 199], ["2026-11-04", 199], ["2026-11-10", 199], ["2026-11-19", 199]],
+     "sources": ["slickdeals.net/f/19542222 price history (Home Depot $199 on record 2026-10-26, 2026-11-10, 2026-11-19)", "slashgear.com/2307244 ($199 at Home Depot, normally $299, article dated 2026-11-04)"]}
   ]
 }

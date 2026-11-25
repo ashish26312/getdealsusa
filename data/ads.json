@@ -1,6 +1,6 @@
 {
   "_note": "Black Friday ads by store. Facts come from each store's own announcements and deal-news coverage (see sources). Highlight prices are ADVERTISED prices and are not checked on product pages like the deals in products.csv. main.start/main.end (ISO) drive the Live now / Starts / Ended badge. Edit here, then run node scripts/build-seo.mjs.",
-  "checked": "2026-11-23",
+  "checked": "2026-11-25",
   "stores": [
     {
       "store": "Walmart", "slug": "walmart",
@@ -14,14 +14,16 @@
         {"name": "Cyber Monday", "dates": "Nov 30–Dec 2", "note": "Online only"}
       ],
       "highlights": [
-        {"item": "Apple AirPods Pro 3", "price": "$199", "was": "$249"},
-        {"item": "75\" Hisense Smart Roku TV", "price": "$328", "was": "$668"},
-        {"item": "98\" TCL QLED 4K Google TV", "price": "$898", "was": "$1,500"},
-        {"item": "85\" Samsung 4K UHD Smart TV", "price": "$698", "was": "$898"},
-        {"item": "15.6\" Dell touchscreen laptop", "price": "$429", "was": "$849"},
-        {"item": "14\" Acer Chromebook (touch)", "price": "$319", "was": "$600"}
+        {"item": "Apple AirPods Pro 3", "price": "$149", "was": "$249"},
+        {"item": "Nintendo Switch 2 + Mario Kart World bundle", "price": "$499", "was": "$549.99"},
+        {"item": "Apple iPad 11\" (128GB)", "price": "$379", "was": "$449"},
+        {"item": "Meta Quest 3S 128GB", "price": "$297", "was": "$349.99"},
+        {"item": "Oura Ring 5", "price": "$299", "was": "$399"},
+        {"item": "Acer Chromebook Plus 514 (14\")", "price": "$378", "was": "$599.99"},
+        {"item": "KitchenAid Artisan 5-qt stand mixer", "price": "$349", "was": "$499.99"},
+        {"item": "Shark FlexStyle Air Styling & Drying System", "price": "$199", "was": "$399.99"}
       ],
-      "sources": [["Walmart", "https://corporate.walmart.com/news/2026/10/walmart-unwraps-three-major-holiday-shopping-events"], ["MacRumors", "https://www.macrumors.com/2026/11/12/walmart-black-friday-sale-begins/"]]
+      "sources": [["Walmart", "https://corporate.walmart.com/news/2026/10/walmart-unwraps-three-major-holiday-shopping-events"], ["Good Morning America", "https://www.goodmorningamerica.com/shop/story/walmart-black-friday-deals-2026-138083288"], ["MacRumors", "https://www.macrumors.com/2026/11/12/walmart-black-friday-sale-begins/"]]
     },
     {
       "store": "Target", "slug": "target",
@@ -79,14 +81,16 @@
         {"name": "Prime Store Card offer", "dates": "Nov 22–30", "note": "$100 instant gift card"}
       ],
       "highlights": [
+        {"item": "Apple AirPods Pro 3", "price": "$149", "was": "$249"},
+        {"item": "Bose QuietComfort Headphones", "price": "$167", "was": "$359"},
+        {"item": "Nintendo Switch 2 + Mario Kart World bundle", "price": "$499", "was": "$549"},
+        {"item": "Apple MacBook Neo", "price": "$649", "was": "$699"},
+        {"item": "Apple iPad mini (A17 Pro, 128GB)", "price": "$499", "was": "$599"},
+        {"item": "Garmin Forerunner 265", "price": "$299", "was": "$449"},
         {"item": "Kindle Scribe Colorsoft", "price": "$479.99", "was": "$679.99"},
-        {"item": "Bose QuietComfort Headphones (2nd Gen)", "price": "$199", "was": "$359"},
-        {"item": "Beats Studio Pro", "price": "$149.95", "was": "$299.99"},
-        {"item": "KitchenAid Artisan 5-qt stand mixer", "price": "$349.95", "was": "$499.99"},
-        {"item": "Dyson V15 Detect cordless vacuum", "price": "$598.50", "was": "$849.99"},
-        {"item": "Sony WH-1000XM6", "price": "$348", "was": "$459.99"}
+        {"item": "Dyson V15 Detect cordless vacuum", "price": "$598.50", "was": "$849.99"}
       ],
-      "sources": [["Amazon", "https://www.aboutamazon.com/news/retail/when-is-amazon-black-friday-faq"], ["Popular Science", "https://www.popsci.com/gear/amazon-black-friday-deals-2026/"]]
+      "sources": [["Amazon", "https://www.aboutamazon.com/news/retail/amazon-black-friday-cyber-monday-deals-2026"], ["Tom's Guide", "https://www.tomsguide.com/sales-events/live/black-friday-amazon-deals-tuesday-november-18-2026"], ["Popular Science", "https://www.popsci.com/gear/amazon-black-friday-deals-2026/"]]
     },
     {
       "store": "Costco", "slug": "costco",
@@ -114,7 +118,7 @@
       "url": "https://www.samsclub.com/",
       "link_label": "samsclub.com",
       "main": {"name": "Countdown & Black Friday Preview", "start": "2026-11-15T00:00:00-06:00", "end": "2026-11-29T23:59:00-06:00"},
-      "thanksgiving": "Closed", "bf_hours": null,
+      "thanksgiving": "Closed", "bf_hours": "Plus members 8 a.m.; everyone 10 a.m.–8 p.m. on Nov 27 (varies by club)",
       "events": [
         {"name": "Instant Savings", "dates": "Oct 28–Nov 29", "note": "Covers most of the ad"},
         {"name": "Countdown to Black Friday", "dates": "Nov 15–25", "note": null},
@@ -127,7 +131,7 @@
         {"item": "Samsung 75\" U7900HD TV", "price": "$399", "was": null},
         {"item": "Member's Mark Deluxe Modern Kitchen Playset", "price": "$129.98", "was": "Save $50"}
       ],
-      "sources": [["9to5Toys", "https://9to5toys.com/2026/10/26/sams-club-november-doorbuster-ad-black-friday/"], ["Slickdeals", "https://daily.slickdeals.net/?p=227755"]]
+      "sources": [["9to5Toys", "https://9to5toys.com/2026/10/26/sams-club-november-doorbuster-ad-black-friday/"], ["Slickdeals", "https://daily.slickdeals.net/?p=227755"], ["DealNews", "https://www.dealnews.com/features/sams-club/holiday-hours/"]]
     },
     {
       "store": "BJ's Wholesale", "slug": "bjs",
@@ -288,7 +292,8 @@
         {"item": "Blackstone Original 28\" XL griddle", "price": "$249.99", "was": "$329.99"},
         {"item": "Redfield 24+5 gun safe", "price": "$399.99", "was": "$699.99"},
         {"item": "Spalding 54\" portable Pro Glide basketball hoop", "price": "$249.99", "was": "$499.99"},
-        {"item": "Huffy 24\" Granite 15-speed mountain bike", "price": "$99.99", "was": "$119.99"}
+        {"item": "Huffy 24\" Granite 15-speed mountain bike", "price": "$99.99", "was": "$119.99"},
+        {"item": "adidas Men's Cloudfoam Comfy running shoes", "price": "$29.99", "was": "$64.99"}
       ],
       "sources": [["Academy", "https://finviz.com/news/419064/academy-sports-outdoors-unwraps-top-holiday-gifts-great-value-and-more-ways-to-win-this-season"], ["Pirates & Princesses", "https://feed.piratesandprincesses.net/p/academy-sports-black-friday-first"], ["Academy", "https://www.academy.com/c/shops/black-friday"]]
     },
@@ -440,20 +445,44 @@
       "store": "Old Navy", "slug": "old-navy",
       "url": "https://oldnavy.gap.com/page/black-friday-cyber-monday-deals?cid=1166554",
       "link_label": "Old Navy's Black Friday page",
-      "main": {"name": "Black Friday", "start": "2026-11-23T00:00:00-05:00", "end": "2026-11-30T23:59:00-05:00"},
+      "main": {"name": "Black Friday", "start": "2026-11-23T00:00:00-05:00", "end": "2026-12-01T23:59:00-05:00"},
       "thanksgiving": "Closed", "bf_hours": null,
       "events": [
-        {"name": "Early Black Friday", "dates": "Live now", "note": "50% off plus an extra 30% off with code EXTRA (exclusions apply)"},
-        {"name": "Black Friday", "dates": "From Nov 23", "note": null},
-        {"name": "Cyber Monday deals", "dates": "From Nov 28", "note": null}
+        {"name": "Black Friday", "dates": "From Nov 23", "note": "50% off everything (exclusions apply)"},
+        {"name": "Cyber Monday deals", "dates": "Nov 28 – Dec 1", "note": null}
       ],
       "highlights": [
-        {"item": "Sweaters and sweatshirts", "price": "50% off", "was": null},
-        {"item": "Women's jeans", "price": "From $26", "was": null},
-        {"item": "Pajamas", "price": "From $8", "was": null},
-        {"item": "Kids and baby", "price": "From $6", "was": null}
+        {"item": "Adult sweaters", "price": "$14", "was": null},
+        {"item": "Women's and men's Wow Jeans", "price": "$16", "was": null},
+        {"item": "Kids' and toddler sweaters", "price": "$10", "was": null},
+        {"item": "Kids', toddler and baby Wow Jeans", "price": "$9", "was": null},
+        {"item": "SoSoft ribbed V-neck sweater", "price": "$14", "was": "$39.99"},
+        {"item": "Medium Carrie tote bag", "price": "$14.49", "was": "$36.99"},
+        {"item": "Plaid flannel pajama pant set", "price": "$24.99", "was": "$49.99"},
+        {"item": "Chelsea boots", "price": "$27.49", "was": "$54.99"}
       ],
-      "sources": [["Old Navy", "https://oldnavy.gap.com/page/black-friday-cyber-monday-deals?cid=1166554"]]
+      "sources": [["Old Navy", "https://oldnavy.gap.com/page/black-friday-cyber-monday-deals?cid=1166554"], ["TODAY", "https://www.today.com/shop/old-navy-black-friday-2026-deals-rcna608642"]]
+    },
+    {
+      "store": "Samsung", "slug": "samsung",
+      "url": "https://www.samsung.com/us/offer/black-friday",
+      "link_label": "Samsung's Black Friday page",
+      "main": {"name": "Black Friday", "start": "2026-11-02T00:00:00-05:00", "end": "2026-11-30T23:59:00-05:00"},
+      "thanksgiving": "Not announced", "bf_hours": null,
+      "events": [
+        {"name": "Black Friday on Samsung.com", "dates": "Nov 2–30", "note": "Extra $100 off when buying two or more Bespoke products"},
+        {"name": "PayPal offer", "dates": "Nov 16–30", "note": "Code PAYPAL100: $100 off Galaxy orders of $1,000+ paid with PayPal"}
+      ],
+      "highlights": [
+        {"item": "65\" The Frame (2026) TV", "price": "$1,199.99", "was": "Save $300"},
+        {"item": "85\" The Frame Pro (2026) TV", "price": "$2,999.99", "was": "Save $1,000"},
+        {"item": "32\" Smart Monitor M9", "price": "$1,299.99", "was": "Save $300"},
+        {"item": "27\" Odyssey OLED G8 gaming monitor", "price": "$799.99", "was": "Save $300"},
+        {"item": "Neo QLED TVs", "price": "Up to $1,200 off", "was": null},
+        {"item": "Galaxy S26 Ultra + Galaxy Buds4 Pro bundle", "price": "Save $174.99", "was": null},
+        {"item": "Galaxy Watch Ultra2", "price": "Up to $250 off with trade-in", "was": null}
+      ],
+      "sources": [["Samsung", "https://www.samsung.com/us/offer/black-friday"], ["MacRumors", "https://www.macrumors.com/2026/11/11/samsung-early-black-friday/"]]
     }
   ]
 }
