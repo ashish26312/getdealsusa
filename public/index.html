@@ -720,7 +720,7 @@ $('#nf').addEventListener('submit',e=>{
   const f=$('#nf'),btn=f.querySelector('button');btn.disabled=true;
   fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
     .then(r=>{if(!r.ok)throw 0;toast('You are on the list.');$('#email').value=''})
-    .catch(()=>toast('Sign-ups open soon. Email getdealsusa.help@gmail.com to join early.'))
+    .catch(()=>toast('Couldn\'t sign you up just now. Please try again, or email getdealsusa.help@gmail.com.'))
     .finally(()=>{btn.disabled=false});
 });
 document.addEventListener('keydown',e=>{
