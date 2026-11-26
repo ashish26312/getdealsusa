@@ -404,7 +404,13 @@ function sampleSeries(d){
 function verdict(series,p,orig){
   const prior=series.slice(0,-1),n=prior.length;
   if(n<7){const pct=orig>p?Math.round((1-p/orig)*100):0,b=pct>=40?'Big discount':pct>=20?'Solid discount':'Modest discount';
-    return {tier:'new',badge:b,take:b,reason:`${pct}% off the store's list price. ${n<2?'We just started tracking this price':`We've tracked this price for ${n} days`}, so we can't yet say if it beats its usual price.`}}
+    // Buy-now guidance from the size of the cut and where we are in the holiday sale calendar.
+    const t=new Date(NOW),y=t.getFullYear(),bf=new Date(y,10,23+((11-new Date(y,10,1).getDay())%7)),cm=new Date(+bf+3*864e5);
+    const next=t<bf?'on Black Friday or Cyber Monday':t<cm?'on Cyber Monday':t<new Date(+cm+3*864e5)?'during the rest of Cyber Week':'in later holiday sales';
+    const save=money(Math.round(orig-p)),last=t<new Date(+cm+864e5)?'past Cyber Monday':'for long';
+    if(pct>=40)return {tier:'new',badge:b,take:'Buy now',reason:`${pct}% off \u2014 you save ${save}. Prices this low rarely last ${last}. Grab it.`};
+    if(pct>=20)return {tier:'new',badge:b,take:'Good buy',reason:`${pct}% off \u2014 you save ${save}. Solid holiday price. Might dip a bit more ${next}, but it's safe to buy now.`};
+    return {tier:'new',badge:b,take:'Maybe wait',reason:`Only ${pct}% off. Small cuts like this often get deeper ${next}. Hold off if you can.`}}
   const med=median(prior),lo=Math.min(...prior),below=(med-p)/med;
   if(p<=lo*1.03&&below>=.15)return {tier:'great',badge:'Great deal',take:'Buy',reason:`Lowest in ${n} days. ${money(Math.round(med-p))} under usual.`};
   if(below>=.10)return {tier:'good',badge:'Good deal',take:'Buy',reason:`${Math.round(below*100)}% below its usual ${money(Math.round(med))}.`};
