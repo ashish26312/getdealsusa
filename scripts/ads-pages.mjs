@@ -53,7 +53,7 @@ export async function buildAds({root,pub,site,esc,css,icon,footerLinks,robots,ye
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${site.url}${p}"><meta name="robots" content="${robots}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="${esc(site.name)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${site.url}${p}"><meta name="twitter:card" content="summary">
-<link rel="icon" href="${icon}"><script type="application/ld+json">${JSON.stringify(ld).replace(/</g,'\\u003c')}</script><style>${css}${ADS_CSS}</style></head>`;
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#1E4D38"><script type="application/ld+json">${JSON.stringify(ld).replace(/</g,'\\u003c')}</script><style>${css}${ADS_CSS}</style></head>`;
   const foot=`<nav class="ft" aria-label="Site"><a href="/">All deals</a> <a href="/black-friday-ads/">Black Friday ads</a> ${footerLinks(site)}</nav></div>${liveJs}</body></html>\n`;
   const hub='/black-friday-ads/',pages=[];
   await rm(path.join(pub,'black-friday-ads'),{recursive:true,force:true});

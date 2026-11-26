@@ -50,7 +50,7 @@ function shell({p,title,desc,h1,intro,list,crumbs,more}){
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${esc(url)}"><meta name="robots" content="${robots}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="${esc(site.name)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${esc(url)}"><meta name="twitter:card" content="summary">
-<script type="application/ld+json">${json(ld)}</script><style>${css}</style></head>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#1E4D38"><script type="application/ld+json">${json(ld)}</script><style>${css}</style></head>
 <body><div class="w"><nav class="c" aria-label="Breadcrumb">${crumbs.map((c,i)=>i<crumbs.length-1?`<a href="${c[1]}">${esc(c[0])}</a>`:esc(c[0])).join(' &rsaquo; ')}</nav>
 <h1>${esc(h1)}</h1><p>${esc(intro)}</p><p class="m">Prices checked ${esc(fmtTime(updated.getTime()))} on ${esc(dateStr)}. Prices and availability change quickly, so confirm at the store. The % off compares with each store's listed regular or comparison price, which is not always what the item recently sold for.</p>
 <ul class="l">${list.map(li).join('\n')}</ul>
@@ -94,7 +94,7 @@ const hDesc='Search Thanksgiving, Black Friday and Cyber Monday deals. Prices fr
 const icon="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%231E4D38'/%3E%3Cpath d='M6 12V6h6l7 7-6 6z' fill='none' stroke='%23F3F8F4' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E";
 const head=`<title>${esc(hTitle)}</title><meta name="description" content="${esc(hDesc)}"><link rel="canonical" href="${homeUrl}"><meta name="robots" content="${robots}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="${esc(site.name)}"><meta property="og:title" content="${esc(hTitle)}"><meta property="og:description" content="${esc(hDesc)}"><meta property="og:url" content="${homeUrl}"><meta name="twitter:card" content="summary">
-<link rel="icon" href="${icon}"><script type="application/ld+json">${json({'@context':'https://schema.org','@type':'WebSite',name:site.name,url:homeUrl})}</script>`;
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#1E4D38"><script type="application/ld+json">${json({'@context':'https://schema.org','@type':'WebSite',name:site.name,url:homeUrl})}</script>`;
 const browse=`<style>.browse{margin:0 0 18px;line-height:1.9}.browse h2{font:700 18px var(--f-display);margin:0 0 4px}.browse a{color:var(--brand);font-weight:600}</style>
 <nav class="browse" aria-label="Browse deals"><h2>Browse deals</h2>${catKeys.length?`<div>By category: ${catKeys.map(k=>`<a href="/deals/${k}/">${esc(CATS[k].n)} (${deals.filter(d=>d.cat===k).length})</a>`).join(' &middot; ')}</div>`:''}${storeKeys.length?`<div>By store: ${storeKeys.map(s=>`<a href="/stores/${slug(s)}/">${esc(s)}</a>`).join(' &middot; ')}</div>`:''}<div>${footerLinks(site).replace(/<\/a> <a/g,'</a> &middot; <a')}</div></nav>`;
 const swap=(h,tag,body)=>{const re=new RegExp(`<!--SEO:${tag}-->[\\s\\S]*?<!--/SEO:${tag}-->`);if(!re.test(h)){console.warn(`Marker SEO:${tag} not found in public/index.html`);return h}return h.replace(re,()=>`<!--SEO:${tag}-->\n${body}\n<!--/SEO:${tag}-->`)};
@@ -110,7 +110,7 @@ for(const ip of INFO_PAGES(site)){
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(ip.title)}</title><meta name="description" content="${esc(ip.desc)}"><link rel="canonical" href="${esc(url)}"><meta name="robots" content="${rb}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="${esc(site.name)}"><meta property="og:title" content="${esc(ip.title)}"><meta property="og:url" content="${esc(url)}">
-<link rel="icon" href="${icon}"><style>${css}${INFO_CSS}</style></head>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#1E4D38"><style>${css}${INFO_CSS}</style></head>
 <body><div class="w"><nav class="c" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; ${esc(ip.nav||ip.title)}</nav>
 <h1>${esc(ip.title)}</h1>${ip.body}
 <nav class="ft" aria-label="Site"><a href="/">All deals</a> ${footerLinks(site)}</nav></div></body></html>
