@@ -20,6 +20,16 @@
     {"match": "/5321127922", "points": [["2026-10-12", 199], ["2026-11-17", 199]],
      "sources": ["slickdeals.net/f/19676160 price history (Walmart $199 on record 2026-10-12; Walmart $199 on 2026-11-17)"]},
     {"match": "/317987591", "points": [["2026-10-26", 199], ["2026-11-04", 199], ["2026-11-10", 199], ["2026-11-19", 199]],
-     "sources": ["slickdeals.net/f/19542222 price history (Home Depot $199 on record 2026-10-26, 2026-11-10, 2026-11-19)", "slashgear.com/2307244 ($199 at Home Depot, normally $299, article dated 2026-11-04)"]}
+     "sources": ["slickdeals.net/f/19542222 price history (Home Depot $199 on record 2026-10-26, 2026-11-10, 2026-11-19)", "slashgear.com/2307244 ($199 at Home Depot, normally $299, article dated 2026-11-04)"]},
+    {"match": "JJGCQPJ53G", "points": [["2026-09-24", 349.99]],
+     "sources": ["MacRumors 'Beats 360 Headphones Now Available in Apple Stores' ($349.99 on record 2026-09-24; Best Buy named as carrying stock at launch); MacRumors 2026-11-19 Black Friday article (regular $349, earlier discounts only ~$20 off)"]},
+    {"match": "/18710304247", "points": [["2026-10-07", 56], ["2026-11-01", 56]],
+     "sources": ["Slickdeals 20122377 (Walmart $56 + $12 Walmart Cash, list $70, posted 2026-10-07)", "Slickdeals 20239179 (Walmart $56 renewed offer + $12 WM Cash, posted 2026-11-01)"]},
+    {"match": "/18682061095", "points": [["2026-10-05", 80], ["2026-10-28", 80], ["2026-11-01", 80], ["2026-11-16", 80]],
+     "sources": ["Slickdeals 20103720 (Walmart $80 + $17 Walmart Cash, list $100, posted 2026-10-05; deal history shows Walmart $80 on 10/28/26, 11/01/26, 11/16/26)"]},
+    {"match": "/331592714", "points": [["2026-10-26", 199], ["2026-11-12", 199]],
+     "sources": ["Slickdeals 20296011 (Home Depot $199, model 3017-20-48-59-1852B, SKU 331592714, posted 2026-11-12; deal history lists Home Depot $199 frontpage on 10/26/26)"]},
+    {"match": "JXJVXL847Y", "points": [["2026-10-25", 199.99], ["2026-11-18", 199.99]],
+     "sources": ["Slickdeals 20207040 (Best Buy $199.99, Shark PowerDetect Speed Ivory A1121, list $500, posted 2026-10-25; deal history lists Best Buy $200 on 11/18/26)"]}
   ]
 }
